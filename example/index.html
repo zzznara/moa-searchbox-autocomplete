@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Moa Searchbox Auto Complete</title>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="../moa-searchbox-autocomplete.js"></script>
+	<script>
+
+		var jsonObj = [
+				{
+					code: "1",
+					text: "검색어1"
+				},
+				{
+					code: "2",
+					text: "검색어2"
+				},
+				{
+					code: "3",
+					text: "검색어3"
+				},
+				{
+					code: "4",
+					text: "검색어4"
+				},
+				{
+					code: "5",
+					text: "검색어5"
+				},
+				{
+					code: "6",
+					text: "검색어6"
+				}
+		];
+
+		$(function(){
+
+			$("[name=keyword_json]").moaAutoComplete({
+				jsonData: jsonObj
+			});
+
+			$("[name=keyword_ajax]").moaAutoComplete({
+				ajaxUrl: "../example-ajax-ko.json"
+			});
+
+			$("[name=keyword_ajax]").focus();
+
+		});
+
+	</script>
+</head>
+<body>
+
+	<div>
+		<input type="text" name="keyword_json" />
+	</div>
+	<div>
+		<input type="text" name="keyword_ajax" />
+	</div>
+
+</body>
+</html>
